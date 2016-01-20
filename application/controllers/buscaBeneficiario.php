@@ -12,13 +12,18 @@ class BuscaBeneficiario extends CI_Controller {
         echo "Prueba";
     }
 
-    public function buscar_beneficiario()
+    public function buscarBeneficiario()
     {
         $this->load->model('buscar_beneficiario');
-        //Cargar librería de 'table'
-        //$this->load->library('table');
+        // Cargar librería de 'table'
+        $this->load->library('table');
         $data['usuarios']  = $this->buscar_beneficiario->ObtenerTodos();
-        //Cargar el view, y enviar los resultados
+
+        // Cargar el view, y enviar los resultados
         $this->load->view('buscaBeneficiario_view', $data);
+    }
+
+    public function inicioSesion(){
+        $this->load->view('login_view');
     }
 }
